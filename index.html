@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Nexus Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="p-6">
+
+<div id="loginBox" class="max-w-md mx-auto section text-center">
+
+<h1 class="text-2xl mb-6 font-bold">Student Nexus</h1>
+
+<input id="email" placeholder="Email / Roll No" class="input">
+
+<button onclick="login()" class="btn">Login</button>
+
+</div>
+
+
+<div id="dashboard" class="hidden max-w-6xl mx-auto">
+
+<img id="bannerImg" class="banner mb-6"
+src="https://images.unsplash.com/photo-1503264116251-35a269479413">
+
+<input type="file" id="bannerUpload" onchange="uploadBanner()" class="mb-4">
+
+<div class="flex items-center gap-6 mb-6">
+
+<img id="profileImg" class="profilePic"
+src="https://ui-avatars.com/api/?background=6366f1&color=fff&name=User">
+
+<input type="file" id="profileUpload" onchange="uploadProfile()">
+
+<div>
+<h2 class="text-3xl font-bold">My Portfolio</h2>
+<p id="userEmail"></p>
+</div>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="section">
+
+<h3 class="font-bold mb-4">Bio</h3>
+
+<textarea id="bio" class="input"></textarea>
+
+<button onclick="saveBio()" class="btn">Save Bio</button>
+
+</div>
+
+<div class="section">
+
+<h3 class="font-bold mb-4">Education</h3>
+
+<select id="eduType" class="input">
+
+<option value="Schooling">Schooling</option>
+<option value="High School">High School</option>
+<option value="College">College</option>
+
+</select>
+
+<input id="school" placeholder="School / College Name" class="input">
+
+<input id="year" placeholder="Year of Passing" class="input">
+
+<input id="grade" placeholder="Score / CGPA" class="input">
+
+<button onclick="addEducation()" class="btn">Add Education</button>
+
+<div id="eduList" class="mt-4"></div>
+
+</div>
+
+<div class="section">
+
+<h3 class="font-bold mb-4">Projects</h3>
+
+<input id="projName" placeholder="Project Name" class="input">
+
+<input id="projDesc" placeholder="Description" class="input">
+
+<button onclick="addProject()" class="btn">Add Project</button>
+
+<div id="projectList" class="mt-4"></div>
+
+</div>
+
+<div class="section">
+
+<h3 class="font-bold mb-4">Skills</h3>
+
+<input id="skillName" placeholder="Skill" class="input">
+
+<input id="skillLevel" type="range" min="0" max="100" value="70">
+
+<button onclick="addSkill()" class="btn mt-3">Add Skill</button>
+
+<div id="skillList" class="mt-4"></div>
+
+</div>
+
+<div class="section">
+
+<h3 class="font-bold mb-4">Certificates</h3>
+
+<input type="file" id="certFile">
+
+<button onclick="addCert()" class="btn mt-3">Upload</button>
+
+<div id="certList" class="grid grid-cols-2 gap-2 mt-4"></div>
+
+</div>
+
+</div>
+
+<button onclick="previewProfile()" class="btn mt-10">
+Preview Portfolio
+</button>
+
+<button onclick="copyLink()" class="btn mt-4 bg-green-500">
+Copy Share Link
+</button>
+
+</div>
+
+
+<div id="profileView" class="hidden max-w-5xl mx-auto section mt-10 text-center">
+
+<img id="viewProfileImg" class="profilePic mx-auto mb-4">
+
+<h1 class="text-4xl font-bold mb-4">Portfolio</h1>
+
+<p id="viewBio"></p>
+
+<h2 class="mt-6 font-bold">Education</h2>
+<div id="viewEdu"></div>
+
+<h2 class="mt-6 font-bold">Projects</h2>
+<div id="viewProj"></div>
+
+<h2 class="mt-6 font-bold">Skills</h2>
+<div id="viewSkills"></div>
+
+<h2 class="mt-6 font-bold">Certificates</h2>
+<div id="viewCerts"></div>
+
+<p class="mt-6">
+Views: <span id="views">0</span>
+</p>
+
+<button onclick="downloadPDF()" class="btn mt-4">
+Download Resume
+</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
